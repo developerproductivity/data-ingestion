@@ -83,7 +83,7 @@ def get_pr_status(repo: str, commit_sha: str, token: str, context: str) -> Optio
         
         # Find the specific context we're looking for
         for status in data.get('statuses', []):
-            if status.get('context') == context:
+            if status.get('context').startswith(context):
                 return status
         
         return None
